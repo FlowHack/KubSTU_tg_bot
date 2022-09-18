@@ -128,10 +128,10 @@ async def admin_panel(message: types.Message):
 @dp.message_handler(text=FRAZES['parse_couples'])
 async def parse_couples(message: types.Message):
     if message.from_user.id == ADMIN_ID:
-        if len(session.query(DayWeek).all()) > 0:
-            session.query(DayWeek).filter(DayWeek.parity is not None).delete()
         if len(session.query(Couple).all()) > 0:
             session.query(Couple).filter(Couple.title is not None).delete()
+        if len(session.query(DayWeek).all()) > 0:
+            session.query(DayWeek).filter(DayWeek.parity is not None).delete()
 
         weeks = get_week_with_couples()
 

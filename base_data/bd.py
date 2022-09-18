@@ -25,7 +25,7 @@ class DayWeek(model):
     id = Column(Integer(), primary_key=True)
     name = Column(String(12), nullable=False)
     parity = Column(Boolean(), nullable=False)
-    couples = relationship('Couple')
+    couples = relationship('Couple', cascade='all,delete')
 
     def __repr__(self):
         return f'{self.name} Чётная:{self.parity}'
