@@ -3,12 +3,18 @@ from sqlalchemy import (Boolean, Column, ForeignKey, Integer, String,
 from sqlalchemy.orm import Session, declarative_base, relationship
 
 from settings import (DB_HOST, DB_NAME, DB_PORT, POSTGRES_PASSWORD,
-                      POSTGRES_USER)
+                      POSTGRES_USER, DEBUG)
 
-engine = create_engine(
-    f'postgresql+psycopg2://{POSTGRES_USER}:{POSTGRES_PASSWORD}@'
-    f'{DB_HOST}:{DB_PORT}/{DB_NAME}'
-)
+
+if DEBUG:
+    engine = create_engine(
+        'postgresql+psycopg2://postgres:1234@localhost:5432/postgres'
+    )
+else:
+    engine = create_engine(
+        f'postgresql+psycopg2://{POSTGRES_USER}:{POSTGRES_PASSWORD}@'
+        f'{DB_HOST}:{DB_PORT}/{DB_NAME}'
+    )
 model = declarative_base()
 session = Session(bind=engine)
 

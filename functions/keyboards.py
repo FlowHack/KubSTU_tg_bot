@@ -8,7 +8,8 @@ FRAZES = {
     'schedule_parity': 'На чётную неделю',
     'schedule_none_parity': 'На нечётную неделю',
     'parity_week': 'Чётность недели',
-    'new_url': 'Установить новый url'
+    'new_url': 'Установить новый url',
+    'get_requests': 'Всего запросов'
 }
 
 
@@ -16,7 +17,10 @@ def admin_panel():
     keyboard = ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
 
     keyboard.add(KeyboardButton(FRAZES['parse_couples']))
-    keyboard.add(KeyboardButton(FRAZES['new_url']))
+    keyboard.add(
+        KeyboardButton(FRAZES['new_url']),
+        KeyboardButton(FRAZES['get_requests'])
+    )
     keyboard.add(KeyboardButton(FRAZES['back_main']))
 
     return keyboard

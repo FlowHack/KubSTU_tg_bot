@@ -11,6 +11,7 @@ DB_NAME = environ.get('DB_NAME')
 POSTGRES_USER = environ.get('POSTGRES_USER')
 POSTGRES_PASSWORD = environ.get('POSTGRES_PASSWORD')
 DB_PORT = environ.get('DB_PORT')
+DEBUG = False
 
 path = getcwd()
 path_settings_dir = path_join(path, 'settings')

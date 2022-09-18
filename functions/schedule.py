@@ -63,3 +63,10 @@ async def get_schedule_on_day_answer(weekday, parity, schedule, REQUESTS):
         )
 
     return answer
+
+
+def requests_count(count, null=False, plus=True):
+    if plus:
+        return count + 1
+    if null:
+        return 0
